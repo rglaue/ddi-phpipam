@@ -1,69 +1,40 @@
-# phpIPam (PHP IP Address Management)
-phpipam is an open-source web IP address management application. Its goal is to provide light and simple IP address management application.
+# Docker phpipam
+#### Features
+* Support of of Kea-1.1.0-beta (DHCP)
+* Support of PowerDNS
+* phpipam auto-installation
 
-Goal of this repository is to provide a lightweight docker image that can be used to have applciation running quickly.
-
-![alt text](https://a.fsdn.com/con/app/proj/phpipam/screenshots/Screen%20Shot%202014-03-13%20at%2016.18.25.png)
-
-## Running the application
-I have tried to make it as simple as possible to run the application quickly. Therefore you can use docker-compose or just docker engine itself to start.
-
-### Docker compose
-```
-wget https://raw.githubusercontent.com/RafPe/docker-phpipam/master/docker-compose.yml
-docker-compose up -d
-```
-The above will start complete service which includes mysql container with database.
-Before running you might want to change passwords being used as they have not been made for production environments.
-
-### Docker engine
-```
-docker run -d --name SomeContainerNameIPAM \
-           -p "127.0.0.1:8181:80" \
-           -e MYSQL_DB_HOSTNAME=Welcome1
-           -e MYSQL_DB_USERNAME=admin
-           -e MYSQL_DB_PASSWORD=Password1
-           -e MYSQL_DB_NAME=exampleDB
-           -e MYSQL_DB_PORT=3306
-           --network="bridge" \
-           --restart=on-failure:3 \
-           --log-driver=json-file \
-           --log-opt max-size=100m \
-           --log-opt max-file=3 \
-           --log-opt labels=phpipam \
-           rafpe/docker-phpipam
-
-```
-
-The above is minimalistic version which require you to provide details for mysql connection using environment variables.
+#### Roadmap
+* Add phpipam-agent support
+* Add "[Crons for phpIPAM ping check, DNS resolution and host discovery](https://github.com/phpipam/phpipam/issues/762)"
+* See if patch from [fanfoni/phpipam]( https://bitbucket.org/thiagofanfoni/phpipam/src/4a96bc18b6b337e1cbffff9794a515e6b72eb780/Dockerfile?at=master&fileviewer=file-view-default) is needed
 
 
-### Configuration via environment variables
+#### Sources
+* [Docker RafPe/docker-phpipam](https://github.com/RafPe/docker-phpipam)
+* [Docker fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam)
+* [Docker pierrecdn/phpipam](https://github.com/pierrecdn/phpipam)
+* [Docker mrlesmithjr/docker-phpipam](mrlesmithjr/docker-phpipam)
+* [phpipam.net](http://phpipam.net)
 
-Image supports the use of the following env variables.
+#### Misc
 
-```shell
-MYSQL_DB_HOSTNAME   
-MYSQL_DB_USERNAME  
-MYSQL_DB_PASSWORD   
-MYSQL_DB_NAME        
-MYSQL_DB_PORT         
+*Default login:* admin / ipamadmin
 
-SSL_ENABLED    # true/false, enable or disable SSL as a whole  
-SSL_KEY        # path to an SSL key file. Only makes sense combined with ssl_cert  
+**Variable list**
 
-SSL_CERT       # path to an SSL certificate file. Only makes sense combined with ssl_key  
-SSL_CA         # path to a file containing SSL CA certs  
-SSL_CAPATH     # path to a directory containing CA certs  
-SSL_CIPHER     # one or more SSL Ciphers  
-
-PROXY_ENABLED  # Enable/Disable usage of the Proxy server  
-PROXY_HOST     # Proxy server FQDN or IP  
-PROXY_PORT     # Proxy server port  
-PROXY_USER     # Proxy Username  
-PROXY_PASS     # Proxy Password  
-PROXY_USEAUTH  # Enable/Disable Proxy authentication  
-```
-
-## Change log
-* **v1.0.0** : Initial documentation and blog write up.
+| Variable         | Values        | Default |
+| :----------------|:-------------:|- ------:|
+| DEBUG            | true or false | false   |
+| PROXY_ENABLED    | true or false | false   |
+| PROXY_ADDRESS    | any           | emtpy   |
+| PROXY_PORT       | any           | empty   |
+| PROXY_AUTH       | true or false | false   |
+| PROXY_USER       | any           | empty   |
+| PROXY_PASSWORD   | any           | empty   |
+| SSL_OFFLOAD      | true or false | false   |
+| DATABASE_HOST    | any           | empty   |
+| DATABASE_PORT    | any           | 3306    |
+| DATABAE_NAME     | any           | empty   |
+| DATABASE_USER    | any           | root    |
+| DATABAE_PASSWORD | any           | empty   |

@@ -1,34 +1,59 @@
 version: '2'
 
 services:
-  mariadb:
-       image: mariadb:latest
+  phpipam_db:
+       image: mariadb:10
        environment:
          - MYSQL_ROOT_PASSWORD=password1
          - MYSQL_DATABASE=phpipam
          - MYSQL_USER=phpipam
          - MYSQL_PASSWORD=NieWyobrazalneHaslo
        restart: always
+       volumes:
+         - ./phpipam_db_init:/docker-entrypoint-initdb.d:ro
+       ports:
+         - "127.0.0.1:3306:3306"
        logging:
         driver: json-file
         options:
           max-size: "100m"
           max-file: "3"
-          labels: "mariadb"
+          labels: "phpipam_db"
+
+  powerdns_db:
+       image: mariadb:10
+       environment:
+         - MYSQL_ROOT_PASSWORD=pdns
+         - MYSQL_DATABASE=pdns
+         - MYSQL_USER=pdns
+         - MYSQL_PASSWORD=pdns
+       restart: always
+       ports:
+         - "3366:3306"
+       volumes:
+         - ./powerdns_db_init:/docker-entrypoint-initdb.d:ro
+       logging:
+        driver: json-file
+        options:
+          max-size: "100m"
+          max-file: "3"
+          labels: "powerdns_db"
 
   phpipam:
-       image: rafpe/docker-phpipam
+       build: ./phpipam_www
+       image: phpipam-www:1.2
        environment:
-          - MYSQL_DB_HOSTNAME=mariadb
+          - MYSQL_DB_HOSTNAME=phpipam_db
           - MYSQL_DB_USERNAME=phpipam
           - MYSQL_DB_PASSWORD=NieWyobrazalneHaslo
           - MYSQL_DB_NAME=phpipam
           - MYSQL_DB_PORT=3306
        ports:
-          - "127.0.0.1:8181:80"
+          - "80:80"
        restart: always
        depends_on:
-          - mariadb
+          - phpipam_db
+          - powerdns_db
        logging:
          driver: json-file
          options:
