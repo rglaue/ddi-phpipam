@@ -1,30 +1,33 @@
 # Docker phpipam
-#### Features
-* Support of of Kea-1.1.0-beta (DHCP)
-* Support of PowerDNS
+## Features
+* Based on [debian/stretch](https://hub.docker.com/_/debian/)
 * phpipam auto-installation
+* Support of of [Kea-1.1.0-beta](http://kea.isc.org/wiki) (DHCP)
+* Support of [PowerDNS](https://www.powerdns.com/)
 
-#### Roadmap
+## Roadmap
+* Make the PROXY_ variables work
 * Add phpipam-agent support
 * Add "[Crons for phpIPAM ping check, DNS resolution and host discovery](https://github.com/phpipam/phpipam/issues/762)"
-* See if patch from [fanfoni/phpipam]( https://bitbucket.org/thiagofanfoni/phpipam/src/4a96bc18b6b337e1cbffff9794a515e6b72eb780/Dockerfile?at=master&fileviewer=file-view-default) is needed
+* See if patch from [fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam/commits/4a96bc18b6b337e1cbffff9794a515e6b72eb780?at=master) is needed
 
 
-#### Sources
-* [Docker RafPe/docker-phpipam](https://github.com/RafPe/docker-phpipam)
-* [Docker fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam)
-* [Docker pierrecdn/phpipam](https://github.com/pierrecdn/phpipam)
-* [Docker mrlesmithjr/docker-phpipam](mrlesmithjr/docker-phpipam)
+## Sources
+* [RafPe/docker-phpipam](https://github.com/RafPe/docker-phpipam)
+* [fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam)
+* [pierrecdn/phpipam](https://github.com/pierrecdn/phpipam)
+* [mrlesmithjr/docker-phpipam](mrlesmithjr/docker-phpipam)
 * [phpipam.net](http://phpipam.net)
 
-#### Misc
+
+## Misc
 
 *Default login:* admin / ipamadmin
 
 **Variable list**
 
 | Variable         | Values        | Default |
-| :----------------|:-------------:|- ------:|
+| :----------------|:-------------:|--------:|
 | DEBUG            | true or false | false   |
 | PROXY_ENABLED    | true or false | false   |
 | PROXY_ADDRESS    | any           | emtpy   |
