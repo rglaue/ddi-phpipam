@@ -9,7 +9,7 @@
 * Make the PROXY_ variables work
 * Add phpipam-agent support
 * Add "[Crons for phpIPAM ping check, DNS resolution and host discovery](https://github.com/phpipam/phpipam/issues/762)"
-* See if patch from [fanfoni/phpipam]( https://bitbucket.org/thiagofanfoni/phpipam/src/4a96bc18b6b337e1cbffff9794a515e6b72eb780/Dockerfile?at=master&fileviewer=file-view-default) is needed
+* See if patch from [fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam/commits/4a96bc18b6b337e1cbffff9794a515e6b72eb780?at=master) is needed
 
 
 ## Sources
