@@ -24,7 +24,7 @@
 **Variable list**
 
 | Variable         | Values        | Default |
-| :----------------|:-------------:|- ------:|
+| :----------------|:-------------:|--------:|
 | DEBUG            | true or false | false   |
 | PROXY_ENABLED    | true or false | false   |
 | PROXY_ADDRESS    | any           | emtpy   |
