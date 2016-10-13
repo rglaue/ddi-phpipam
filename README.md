@@ -2,7 +2,7 @@
 ## Features
 * Based on [debian/stretch](https://hub.docker.com/_/debian/)
 * phpipam auto-installation
-* Support of of [Kea-1.1.0-beta](http://kea.isc.org/wiki) (DHCP)
+* -Support of of [Kea-1.1.0-beta](http://kea.isc.org/wiki) (DHCP)- - [Not working yet](https://github.com/phpipam/phpipam/issues/777)
 * Support of [PowerDNS](https://www.powerdns.com/)
 
 ## Roadmap
