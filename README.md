@@ -24,6 +24,11 @@
 
 *Default login:* admin / ipamadmin
 
+PowerDns configuration :
+![PowerDns configuration Example][pdns]
+[pdns]: https://github.com/PierrickV/docker-phpipam/blob/master/images/powerdns_conf.png?raw=true "PowerDns configuration Exemple"
+
+
 **Variable list**
 
 | Variable         | Values        | Default |
