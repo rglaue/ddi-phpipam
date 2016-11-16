@@ -46,8 +46,8 @@ ADD https://github.com/phpipam/phpipam/archive/master.zip /tmp
 RUN unzip /tmp/master.zip -d /tmp/ \
     && cp -R /tmp/phpipam-master/* /var/www/html \
     && rm /var/www/html/index.html
-COPY apache.conf /etc/apache2/sites-available/000-default.conf
-COPY config.php /var/www/html
+COPY config/apache.conf /etc/apache2/sites-available/000-default.conf
+COPY config/config.php /var/www/html
 
 VOLUME ["/ssl"]
 
