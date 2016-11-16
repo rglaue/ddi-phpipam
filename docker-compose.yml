@@ -4,21 +4,13 @@ services:
   phpipam_db:
        image: mariadb:10
        environment:
-         - MYSQL_ROOT_PASSWORD=password1
+         - MYSQL_ROOT_PASSWORD=phpipam
          - MYSQL_DATABASE=phpipam
          - MYSQL_USER=phpipam
-         - MYSQL_PASSWORD=NieWyobrazalneHaslo
+         - MYSQL_PASSWORD=phpipam
        restart: always
        volumes:
-         - ./phpipam_db_init:/docker-entrypoint-initdb.d:ro
-       ports:
-         - "127.0.0.1:3306:3306"
-       logging:
-        driver: json-file
-        options:
-          max-size: "100m"
-          max-file: "3"
-          labels: "phpipam_db"
+         - ./db_init/phpipam/:/docker-entrypoint-initdb.d:ro
 
   powerdns_db:
        image: mariadb:10
@@ -28,35 +20,25 @@ services:
          - MYSQL_USER=pdns
          - MYSQL_PASSWORD=pdns
        restart: always
-       ports:
-         - "3366:3306"
        volumes:
-         - ./powerdns_db_init:/docker-entrypoint-initdb.d:ro
-       logging:
-        driver: json-file
-        options:
-          max-size: "100m"
-          max-file: "3"
-          labels: "powerdns_db"
+         - ./db_init/powerdns/:/docker-entrypoint-initdb.d:ro
 
   phpipam:
-       build: ./phpipam_www
+       build: .
        image: phpipam-www:1.2
        environment:
           - MYSQL_DB_HOSTNAME=phpipam_db
           - MYSQL_DB_USERNAME=phpipam
-          - MYSQL_DB_PASSWORD=NieWyobrazalneHaslo
+          - MYSQL_DB_PASSWORD=phpipam
           - MYSQL_DB_NAME=phpipam
           - MYSQL_DB_PORT=3306
+          - ENV SSL_ENABLED=false
+          - ENV PROXY_ENABLED=false
+          - PROXY_USEAUTH=false
+          
        ports:
           - "80:80"
        restart: always
        depends_on:
           - phpipam_db
           - powerdns_db
-       logging:
-         driver: json-file
-         options:
-           max-size: "100m"
-           max-file: "3"
-           labels: "phpipam"

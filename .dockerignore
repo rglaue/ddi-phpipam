@@ -1,0 +1,6 @@
+docker-compose.yml
+db_init/
+README.md
+LICENSE
+.git/
+images/
