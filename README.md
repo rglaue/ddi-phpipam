@@ -4,6 +4,7 @@
 * phpipam auto-installation
 * ~~Support of of [Kea-1.1.0-beta](http://kea.isc.org/wiki) (DHCP)~~ - [Not working yet](https://github.com/phpipam/phpipam/issues/777)
 * Support of [PowerDNS](https://www.powerdns.com/)
+* Support of SNMP
 
 ## Roadmap
 * Make the PROXY_ variables work
