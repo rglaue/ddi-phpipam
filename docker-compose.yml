@@ -24,8 +24,7 @@ services:
          - ./db_init/powerdns/:/docker-entrypoint-initdb.d:ro
 
   phpipam:
-       build: .
-       image: phpipam-www:1.2
+       image: pierrickv/docker-phpipam
        environment:
           - MYSQL_DB_HOSTNAME=phpipam_db
           - MYSQL_DB_USERNAME=phpipam
@@ -35,7 +34,7 @@ services:
           - ENV SSL_ENABLED=false
           - ENV PROXY_ENABLED=false
           - PROXY_USEAUTH=false
-          
+
        ports:
           - "80:80"
        restart: always

@@ -1,4 +1,12 @@
-# Docker phpipam
+
+![phpipam][phpipam]
+[phpipam]: ./images/logo.png "Phpipam.net logo"
+
+## How to use
+Launch:
+    # docker-compose up -d
+And then go to http://localhost
+
 ## Features
 * Based on [debian/stretch](https://hub.docker.com/_/debian/)
 * phpipam auto-installation
@@ -23,14 +31,14 @@
 
 ## Misc
 
-*Default login:* admin / ipamadmin
+### Default login:
+admin / ipamadmin
 
-PowerDns configuration :
+### PowerDns configuration :
 ![PowerDns configuration Example][pdns]
-[pdns]: https://github.com/PierrickV/docker-phpipam/blob/master/images/powerdns_conf.png?raw=true "PowerDns configuration Exemple"
+[pdns]: ./images/powerdns_conf.png "PowerDns configuration Exemple"
 
-
-**Variable list**
+### Variable list
 
 | Variable         | Values        | Default |
 | :----------------|:-------------:|--------:|
