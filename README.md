@@ -3,9 +3,11 @@
 [phpipam]: ./images/logo.png "Phpipam.net logo"
 
 ## How to use
-Launch:
-    # docker-compose up -d
-And then go to http://localhost
+Run:
+ ```bash 
+ # docker-compose up -d 
+ ```
+And then go to [http://localhost](http://localhost)
 
 ## Features
 * Based on [debian/stretch](https://hub.docker.com/_/debian/)
