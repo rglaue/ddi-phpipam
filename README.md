@@ -1,6 +1,6 @@
 
 ![phpipam][phpipam]
-[phpipam]: ./images/logo.png "Phpipam.net logo"
+[phpipam]: https://github.com/PierrickV/phpipam/blob/master/images/logo.png?raw=true "Phpipam.net logo"
 
 ## How to use
 Run:
@@ -38,7 +38,7 @@ admin / ipamadmin
 
 ### PowerDns configuration :
 ![PowerDns configuration Example][pdns]
-[pdns]: ./images/powerdns_conf.png "PowerDns configuration Exemple"
+[pdns]: https://github.com/PierrickV/phpipam/blob/master/images/powerdns_conf.png?raw=true "PowerDns configuration Exemple"
 
 ### Variable list
 
