@@ -1,6 +1,5 @@
 
-![phpipam][phpipam]
-[phpipam]: https://github.com/PierrickV/phpipam/blob/master/images/logo.png?raw=true "Phpipam.net logo"
+![phpipam](https://github.com/PierrickV/phpipam/blob/master/images/logo.png?raw=true "Phpipam.net logo")
 
 ## How to use
 Run:
