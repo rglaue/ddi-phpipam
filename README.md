@@ -1,5 +1,5 @@
 
-![phpipam](https://github.com/PierrickV/phpipam/blob/master/images/logo.png?raw=true "Phpipam.net logo")
+![phpipam](https://raw.githubusercontent.com/PierrickV/phpipam/master/images/logo.png "Phpipam.net logo")
 
 ## How to use
 Run:
@@ -36,7 +36,7 @@ And then go to [http://localhost](http://localhost)
 admin / ipamadmin
 
 ### PowerDns configuration exemple:
-![PowerDns configuration Example](https://github.com/PierrickV/phpipam/blob/master/images/powerdns_conf.png?raw=true)
+![PowerDns configuration Example](https://raw.githubusercontent.com/PierrickV/phpipam/master/images/powerdns_conf.png)
 
 ### Variable list
 
