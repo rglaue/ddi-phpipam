@@ -23,8 +23,8 @@ services:
        volumes:
          - ./db_init/powerdns/:/docker-entrypoint-initdb.d:ro
 
-  phpipam:
-       image: pierrickv/docker-phpipam
+  phpipam_www:
+       build: .
        environment:
           - MYSQL_DB_HOSTNAME=phpipam_db
           - MYSQL_DB_USERNAME=phpipam

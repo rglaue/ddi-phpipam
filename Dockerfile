@@ -1,8 +1,5 @@
 FROM debian:stretch
 
-#Get isc-kea-dhcp
-ADD http://ftp.isc.org/isc/kea/1.1.0-beta/kea-1.1.0-beta.tar.gz /tmp/
-
 #Install
 RUN DEBIAN_FRONTEND=noninteractive \
     && apt-get update -qq \
@@ -14,32 +11,13 @@ RUN DEBIAN_FRONTEND=noninteractive \
                           php-ldap \
                           php-pear \
                           php-snmp \
+                          php-mbstring \
                           pdns-server \
                           vim \
                           curl \
                           unzip \
-                          libssl-dev \
-                          build-essential \
-                          libboost-dev \
-                          liblog4cplus-dev \
-                          make \
-                          git \
-                          mysql-client \
-    && tar -xzf /tmp/kea-1.1.0-beta.tar.gz -C /tmp/ \
-    && cd /tmp/kea-1.1.0-beta \
-    && ./configure --prefix=/ \
-    && make \
-    && make install \
-    && apt-get autoremove -y vim \
-                             curl \
-                             libssl-dev \
-                             build-essential \
-                             libboost-dev \
-                             liblog4cplus-dev \
-                             make \
-                             git \
-    && apt-get autoclean \
-    && rm -R /tmp/*
+                          kea-common \
+    && apt-get autoclean
 
 # Phpipam
 ADD https://github.com/phpipam/phpipam/archive/master.zip /tmp
@@ -62,4 +40,4 @@ ENV APACHE_PID_FILE /var/apache.pid
 
 EXPOSE 80 443
 
-CMD ["/usr/sbin/apache2", "-D", "FOREGROUND"]
+CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
