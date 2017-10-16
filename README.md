@@ -1,44 +1,35 @@
-
 ![phpipam](https://raw.githubusercontent.com/PierrickV/phpipam/master/images/logo.png "Phpipam.net logo")
 
-## How to use
-Run:
- ```bash 
- # docker-compose up -d 
- ```
-And then go to [http://localhost](http://localhost)
+# Docker image for phpIPAM
 
-## Features
+#### How to use
+
+* Get this project
+* Run: `docker-compose up -d`
+* See [http://localhost](http://localhost)
+
+#### Features
 * Based on [debian/stretch](https://hub.docker.com/_/debian/)
 * phpipam auto-installation
 * ~~Support of of [Kea-1.1.0-beta](http://kea.isc.org/wiki) (DHCP)~~ - [Not working yet](https://github.com/phpipam/phpipam/issues/777)
 * Support of [PowerDNS](https://www.powerdns.com/)
 * Support of SNMP
 
-## Roadmap
+#### Roadmap
 * Make the PROXY_ variables work
 * Add phpipam-agent support
 * Add "[Crons for phpIPAM ping check, DNS resolution and host discovery](https://github.com/phpipam/phpipam/issues/762)"
 * See if patch from [fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam/commits/4a96bc18b6b337e1cbffff9794a515e6b72eb780?at=master) is needed
 
+#### Misc
 
-## Sources
-* [RafPe/docker-phpipam](https://github.com/RafPe/docker-phpipam)
-* [fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam)
-* [pierrecdn/phpipam](https://github.com/pierrecdn/phpipam)
-* [mrlesmithjr/docker-phpipam](mrlesmithjr/docker-phpipam)
-* [phpipam.net](http://phpipam.net)
-
-
-## Misc
-
-### Default login:
+###### Default login:
 admin / ipamadmin
 
-### PowerDns configuration exemple:
+###### PowerDns configuration exemple:
 ![PowerDns configuration Example](https://raw.githubusercontent.com/PierrickV/phpipam/master/images/powerdns_conf.png)
 
-### Variable list
+#### Variable list
 
 | Variable         | Values        | Default |
 | :----------------|:-------------:|--------:|
@@ -55,3 +46,10 @@ admin / ipamadmin
 | DATABAE_NAME     | any           | empty   |
 | DATABASE_USER    | any           | root    |
 | DATABAE_PASSWORD | any           | empty   |
+
+#### Sources
+* [RafPe/docker-phpipam](https://github.com/RafPe/docker-phpipam)
+* [fanfoni/phpipam](https://bitbucket.org/thiagofanfoni/phpipam)
+* [pierrecdn/phpipam](https://github.com/pierrecdn/phpipam)
+* [mrlesmithjr/docker-phpipam](mrlesmithjr/docker-phpipam)
+* [phpipam.net](http://phpipam.net)

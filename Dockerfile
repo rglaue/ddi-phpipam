@@ -12,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
                           php-pear \
                           php-snmp \
                           php-mbstring \
+                          php-curl \
                           pdns-server \
                           vim \
                           curl \
