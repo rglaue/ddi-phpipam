@@ -49,7 +49,7 @@ git clone https://github.com/rglaue/ddi-phpipam.git
 sudo docker-compose up -d
 ```
 
-**[End of Forked Focumentation]**
+**[End of Forked Documentation]**
 
 ## How to use
 
