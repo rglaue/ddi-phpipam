@@ -1,43 +1,58 @@
-version: '2'
+version: '3.5'
+
+# firewall-cmd --zone=trusted --add-interface=br-ddi_net
+networks:
+  ddi_net:
+    driver_opts:
+      com.docker.network.bridge.name: br-ddi_net
+
+volumes:
+  ddi-phpipam:
+  ddi-powerdns:
 
 services:
   phpipam_db:
        image: mariadb:10
        environment:
-         - MYSQL_ROOT_PASSWORD=phpipam
-         - MYSQL_DATABASE=phpipam
-         - MYSQL_USER=phpipam
-         - MYSQL_PASSWORD=phpipam
+         "MYSQL_ROOT_PASSWORD": 'phpipam'
+         "MYSQL_DATABASE": 'phpipam'
+         "MYSQL_USER": 'phpipam'
+         "MYSQL_PASSWORD": 'phpipam'
        restart: always
        volumes:
          - ./db_init/phpipam/:/docker-entrypoint-initdb.d:ro
+       networks:
+         - ddi_net
 
   powerdns_db:
        image: mariadb:10
        environment:
-         - MYSQL_ROOT_PASSWORD=pdns
-         - MYSQL_DATABASE=pdns
-         - MYSQL_USER=pdns
-         - MYSQL_PASSWORD=pdns
+         "MYSQL_ROOT_PASSWORD": 'pdns'
+         "MYSQL_DATABASE": 'pdns'
+         "MYSQL_USER": 'pdns'
+         "MYSQL_PASSWORD": 'pdns'
        restart: always
        volumes:
          - ./db_init/powerdns/:/docker-entrypoint-initdb.d:ro
+       networks:
+         - ddi_net
 
   phpipam_www:
        build: .
        environment:
-          - MYSQL_DB_HOSTNAME=phpipam_db
-          - MYSQL_DB_USERNAME=phpipam
-          - MYSQL_DB_PASSWORD=phpipam
-          - MYSQL_DB_NAME=phpipam
-          - MYSQL_DB_PORT=3306
-          - ENV SSL_ENABLED=false
-          - ENV PROXY_ENABLED=false
-          - PROXY_USEAUTH=false
-
+          "MYSQL_DB_HOSTNAME": 'phpipam_db'
+          "MYSQL_DB_USERNAME": 'phpipam'
+          "MYSQL_DB_PASSWORD": 'phpipam'
+          "MYSQL_DB_NAME": 'phpipam'
+          "MYSQL_DB_PORT": '3306'
+          "SSL_ENABLED": 'false'
+          "PROXY_ENABLED": 'false'
+          "PROXY_USEAUTH": 'false'
        ports:
           - "80:80"
        restart: always
        depends_on:
           - phpipam_db
           - powerdns_db
+       networks:
+         - ddi_net

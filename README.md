@@ -2,6 +2,32 @@
 
 # Docker image for phpIPAM
 
+## Forked Documentation
+
+This project is	forked from [Newlode/phpipam](https://github.com/Newlode/phpipam).
+
+### Changes from what was forked
+
+* docker-compose 3.5 configuration supported (was 2.0)
+
+### How to use this fork 
+Give docker interfaces trusted privilege to pass traffic through the firewall
+* docker0 is the docker interface
+* br-ddi_net is the container bridge interface defined in docker-compose.yml
+```
+firewall-cmd --zone=trusted --add-interface=docker0   
+firewall-cmd --permanent --zone=trusted --add-interface=docker0
+firewall-cmd --zone=trusted --add-interface=br-ddi_net
+firewall-cmd --permanent --zone=trusted --add-interface=br-ddi_net
+```
+Clone this forked repository, and bring up the containers
+```
+git clone https://github.com/rglaue/ddi-phpipam.git
+sudo docker-compose up -d
+```
+
+**[End of Forked Focumentation]**
+
 ## How to use
 
 ```
