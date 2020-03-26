@@ -10,6 +10,29 @@ This project is	forked from [Newlode/phpipam](https://github.com/Newlode/phpipam
 
 * docker-compose 3.5 configuration supported (was 2.0)
 
+### What is DDI, How is it supported
+
+DDI is an acronym for DNS/DHCP/IPAM; See [IP Address Management](https://en.wikipedia.org/wiki/IP_Address_Management)
+* DNS: [PowerDNS](https://www.powerdns.com/)
+* DHCP: [ISC Kea DHCP Server](https://www.isc.org/kea/)
+* IPAM: [phpIPAM](https://phpipam.net/)
+
+phpIPAM has support for PowerDNS, and has an
+[issue #777](https://github.com/phpipam/phpipam/issues/777)
+open about Kea DHCP integration.
+
+DDI is a suite of services to manage dynamic and static IP assignment within
+Computing Infrastructure. The desire is to have a central administrative
+system for tracking this information, and making it available to domain name
+and IP services.
+
+phpIPAM has a REST api that can be leveraged to assist assignment of IPs in
+provisioning systems that want to use static assignment. This could be IaC
+(Infrastructure as Code), or Virtual Machine provisioning. phpIPAM integrates
+with PowerDNS which provides Authoritative DNS services. And progress is
+moving with ISC Kea integration to manage dynamic (DHCP) assignment. DHCP is
+also widely used in Virtual Machine provisioning systems.
+
 ### How to use this fork 
 Give docker interfaces trusted privilege to pass traffic through the firewall
 * docker0 is the docker interface
