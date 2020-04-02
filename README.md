@@ -21,7 +21,7 @@ phpIPAM has support for PowerDNS, and has an
 [issue #777](https://github.com/phpipam/phpipam/issues/777)
 open about Kea DHCP integration.
 There is an alternative that uses a scripted approach to writing out a DHCPd
-configuration file: [https://github.com/debops/phpipam-scripts](https://github.com/debops/phpipam-scripts))
+configuration file: [https://github.com/debops/phpipam-scripts](https://github.com/debops/phpipam-scripts).
 
 
 DDI is a suite of services to manage dynamic and static IP assignment within
