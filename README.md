@@ -49,6 +49,32 @@ git clone https://github.com/rglaue/ddi-phpipam.git
 sudo docker-compose up -d
 ```
 
+### How to configure the DDI setup
+
+#### Enable the PowerDNS and (optionally) API modules in phpIPAM
+
+- under SERVER MANAGEMENT (in the left side bar)
+  - click on "phpIPAM settings"
+    - under Feature settings > (enable modules by changing the switch from OFF to ON)
+      - API: ON
+      - Enable PowerDNS: ON
+    - Click [Save] button  (scroll to bottom)
+
+After enabling these modules, you will see them appear in the the left side bar: "API", "PowerDNS".
+
+#### Connect phpIPAM to the the PowerDNS database
+
+- SERVER MANAGEMENT > PowerDNS > Settings
+  - Host
+    - change value to: powerdns_db    (this is the hostname defined in docker-compose.yml)
+
+#### Using phpIPAM API
+
+- DDI phpIPAM API URL: http://localhost/api/
+- [Example API calls using cURL](https://phpipam.net/news/api_example_curl/)
+
+
+
 **[End of Forked Documentation]**
 
 ## How to use
